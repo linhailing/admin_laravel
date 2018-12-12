@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function () {
 
 Route::group(['middleware'=>'api'], function (){
     Route::get('/classic/latest','Api\ClassicController@classic');
-    Route::post('/like','Api\ClassicController@like');
+    Route::any('/like','Api\ClassicController@like');
 });

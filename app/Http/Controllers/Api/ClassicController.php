@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Api;
 
 
 use App\Models\Model;
+use App\Util;
 use Illuminate\Http\Request;
 
 
@@ -24,6 +25,9 @@ class ClassicController extends ApiController{
         return $this->jsonp(['info'=>$classic,'ret'=>0]);
     }
     public function like(Request $request){
+        $arr = ['u'=>'1','p'=>'1','d'=>'1111'];
+        $str = Util::up_encode($arr);
+        dd($str);
         $uid = 1;
         $cid = $request->get('cid');
         if (!$cid) return $this->jsonp(['ret'=>1,'msg'=>'参数错误！']);

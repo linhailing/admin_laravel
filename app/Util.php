@@ -20,4 +20,29 @@ class Util{
         } else echo json_encode($data, JSON_UNESCAPED_UNICODE);
         exit;
     }
+    //加密
+    public static function up_encode($str) {
+        if (is_array($str) || is_object($str)) $str = json_encode($str);
+        $cr = new Crypt3Des (Crypt3DesKey, Crypt3DesIV);
+        $str = $cr->encrypt($str);
+        $str = str_replace('+', '-', $str);
+        $str = str_replace('/', '.', $str);
+        $str = str_replace('=', '!', $str);
+        return $str;
+    }
+
+    //解密
+    public static function up_decode($str) {
+        if (!$str) return $str;
+        $str = urldecode($str);
+        $str = trim($str);
+        $cr = new Crypt3Des (Crypt3DesKey, Crypt3DesIV);
+        $str = str_replace('-', '+', $str);
+        $str = str_replace('.', '/', $str);
+        $str = str_replace('!', '=', $str);
+        $str = $cr->decrypt($str);
+        $couldbeA = json_decode($str, true);
+        if (is_array($couldbeA)) return $couldbeA;
+        return false;
+    }
 }
