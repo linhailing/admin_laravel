@@ -12,5 +12,7 @@ use \App\Http\Controllers\Controller;
 
 class AdminController extends Controller{
     public function __construct(){
+        @define('TIMESTAMP', time());
+        @define('DATETIME', date('Y-m-d H:i:s', TIMESTAMP));
     }
 }

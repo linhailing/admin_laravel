@@ -17,3 +17,6 @@ Route::get('/', function () {
 **/
 
 Route::get('/', 'Admin\WelcomeController@index');
+Route::get('/classic/index', 'Admin\ClassicController@index');
+Route::get('/classic/add', 'Admin\ClassicController@classicAdd');
+Route::any('/classic/upload', 'Admin\ClassicController@classicUpload');

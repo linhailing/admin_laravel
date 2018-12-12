@@ -17,15 +17,15 @@
     <LINK rel="Bookmark" href="favicon.ico" >
     <LINK rel="Shortcut Icon" href="favicon.ico" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="client/admin/lib/html5.js"></script>
-    <script type="text/javascript" src="client/admin/lib/respond.min.js"></script>
+    <script type="text/javascript" src="/client/admin/lib/html5.js"></script>
+    <script type="text/javascript" src="/client/admin/lib/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="client/admin/h-ui/css/H-ui.min.css" />
-    <link rel="stylesheet" type="text/css" href="client/admin/h-ui.admin/css/H-ui.admin.css" />
-    <link rel="stylesheet" type="text/css" href="client/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/client/admin/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/client/admin/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="/client/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
 
-    <link rel="stylesheet" type="text/css" href="client/admin/h-ui.admin/skin/default/skin.css" id="skin" />
-    <link rel="stylesheet" type="text/css" href="client/admin/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/client/admin/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="/client/admin/h-ui.admin/css/style.css" />
     @yield('style')
     <!--[if IE 6]>
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
@@ -79,7 +79,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="article-list.html" title="资讯管理">资讯管理</a></li>
+                    <li><a href="<?=url('admin/classic/index')?>" title="资讯管理">刊期管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -178,14 +178,13 @@
     </div>
 </section>
 
-<script type="text/javascript" src="client/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="client/admin/lib/layer/2.4/layer.js"></script>
-
-<script type="text/javascript" src="client/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
-<script type="text/javascript" src="client/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
-<script type="text/javascript" src="client/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-<script type="text/javascript" src="client/admin/h-ui/js/H-ui.js"></script>
-<script type="text/javascript" src="client/admin/h-ui.admin/js/H-ui.admin.page.js"></script>
+<script type="text/javascript" src="/client/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/client/admin/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="/client/admin/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="/client/admin/h-ui.admin/js/H-ui.admin.page.js"></script>
 @yield('script')
 </body>
 </html>
