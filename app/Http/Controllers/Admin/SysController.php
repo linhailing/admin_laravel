@@ -121,4 +121,7 @@ class SysController extends AdminController{
         $d['apps'] = $apps;
         return view('admin.sys.role_op',$d);
     }
+    public function rolePost(Request $request){
+        dd($request);
+    }
 }

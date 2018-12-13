@@ -10,7 +10,7 @@
 @section('style')
 @stop
 @section('content')
-    <form class="form form-horizontal" id="form-article-add" method="post" action="{{url('admin/sys/func_post?func_id=')}}">
+    <form class="form form-horizontal" id="form-article-add" method="post" action="{{url('admin/sys/role_post?func_id=')}}">
         @csrf
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">角色名称：</label>
@@ -79,8 +79,8 @@
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
-                <button onClick="window.history.go(-1);" class="btn btn-default radius" type="button">返回</button>
+                <button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+                <button  class="btn btn-default radius" type="button">返回</button>
             </div>
         </div>
     </form>
@@ -111,6 +111,18 @@
             $("#chkAll").click(function() {
                 $(".grid input[type='checkbox']").attr("checked", $(this).attr("checked") || false);
                 checkValue();
+            });
+            $(".chkOp").click(function() {
+                var parent = $(this).parent().parent();
+                var len = parent.find("input[type='checkbox']:checked").length;
+                parent.prev().find("input[type='checkbox']:eq(0)").attr("checked", len == 0 ? false : true);
+                checkValue();
+            });
+            $("button[type='submit']").click(function() {
+                if ($("input[name='role_name']").val() == '') { alert("请輸入角色名称！"); $("input[name='role_name']").focus(); return false; };
+                if ($("input[name='role_ename']").val() == '') { alert("请輸入角色代码！"); $("input[name='role_ename']").focus(); return false; };
+                checkValue();
+                return true;
             });
         })
     </script>
