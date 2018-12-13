@@ -14,6 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <LINK rel="Bookmark" href="favicon.ico" >
     <LINK rel="Shortcut Icon" href="favicon.ico" />
     <!--[if lt IE 9]>
@@ -26,6 +27,7 @@
 
     <link rel="stylesheet" type="text/css" href="/client/admin/h-ui.admin/skin/default/skin.css" id="skin" />
     <link rel="stylesheet" type="text/css" href="/client/admin/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
     @yield('style')
     <!--[if IE 6]>
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
@@ -152,11 +154,9 @@
             <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="system-base.html" title="系统设置">系统设置</a></li>
-                    <li><a href="system-category.html" title="栏目管理">栏目管理</a></li>
-                    <li><a href="system-data.html" title="数据字典">数据字典</a></li>
-                    <li><a href="system-shielding.html" title="屏蔽词">屏蔽词</a></li>
-                    <li><a href="system-log.html" title="系统日志">系统日志</a></li>
+                    <li><a href="system-base.html" title="用户管理">用户管理</a></li>
+                    <li><a href="{{url('admin/sys/func_list')}}" title="功能管理">功能管理</a></li>
+                    <li><a href="{{url('admin/sys/role_list')}}" title="用户角色管理">角色管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -178,7 +178,7 @@
     </div>
 </section>
 
-<script type="text/javascript" src="/client/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-min.js"></script>
 <script type="text/javascript" src="/client/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>

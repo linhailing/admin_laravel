@@ -27,7 +27,9 @@ class ClassicController extends ApiController{
     public function like(Request $request){
         $arr = ['u'=>'1','p'=>'1','d'=>'1111'];
         $str = Util::up_encode($arr);
-        dd($str);
+        echo $str."<br>";
+        $str1 = Util::up_decode($str);
+        dd($str1);
         $uid = 1;
         $cid = $request->get('cid');
         if (!$cid) return $this->jsonp(['ret'=>1,'msg'=>'参数错误！']);

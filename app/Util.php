@@ -23,7 +23,8 @@ class Util{
     //加密
     public static function up_encode($str) {
         if (is_array($str) || is_object($str)) $str = json_encode($str);
-        $cr = new Crypt3Des (Crypt3DesKey, Crypt3DesIV);
+        //$cr = new Crypt3Des (Crypt3DesKey, Crypt3DesIV);
+        $cr = new Aes(Crypt3DesKey);
         $str = $cr->encrypt($str);
         $str = str_replace('+', '-', $str);
         $str = str_replace('/', '.', $str);
@@ -36,7 +37,8 @@ class Util{
         if (!$str) return $str;
         $str = urldecode($str);
         $str = trim($str);
-        $cr = new Crypt3Des (Crypt3DesKey, Crypt3DesIV);
+        //$cr = new Crypt3Des (Crypt3DesKey, Crypt3DesIV);
+        $cr = new Aes(Crypt3DesKey);
         $str = str_replace('-', '+', $str);
         $str = str_replace('.', '/', $str);
         $str = str_replace('!', '=', $str);

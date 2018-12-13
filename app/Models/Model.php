@@ -82,4 +82,9 @@ class Model{
         if (!self::$Api) self::$Api = new Api();
         return self::$Api;
     }
+    private static $Sys = null;
+    public static function Sys() {
+        if (!self::$Sys) self::$Sys = new Sys();
+        return self::$Sys;
+    }
 }
