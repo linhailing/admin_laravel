@@ -154,7 +154,7 @@
             <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="system-base.html" title="用户管理">用户管理</a></li>
+                    <li><a href="{{url('admin/sys/admin_list')}}" title="用户管理">用户管理</a></li>
                     <li><a href="{{url('admin/sys/func_list')}}" title="功能管理">功能管理</a></li>
                     <li><a href="{{url('admin/sys/role_list')}}" title="用户角色管理">角色管理</a></li>
                 </ul>

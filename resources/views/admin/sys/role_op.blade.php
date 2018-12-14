@@ -10,25 +10,25 @@
 @section('style')
 @stop
 @section('content')
-    <form class="form form-horizontal" id="form-article-add" method="post" action="{{url('admin/sys/role_post?func_id=')}}">
+    <form class="form form-horizontal" id="form-article-add" method="post" action="{{url('admin/sys/role_post?role_id='.@$role_id)}}">
         @csrf
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">角色名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{@$info->role_name}}" placeholder="请填写应用代码" name="role_name">
+                <input type="text" class="input-text" value="{{@$role->role_name}}" placeholder="请填写应用代码" name="role_name">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">角色代码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{@$info->role_ename}}" placeholder="请填写应用代码" name="role_ename">
+                <input type="text" class="input-text" value="{{@$role->role_ename}}" placeholder="请填写应用代码" name="role_ename">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">角色功能：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <textarea class="hide" name="role_funcnames" id="txtFuncsName"><?= @$info ? @$info->role_funcnames : "" ?></textarea>
-                <textarea class="hide" name="role_funcids" id="txtFuncsID"><?= @$info ? @$info->role_funcids : "" ?></textarea>
+                <textarea class="hide" name="role_funcnames" id="txtFuncsName"><?= @$role ? @$role->role_funcnames : "" ?></textarea>
+                <textarea class="hide" name="role_funcids" id="txtFuncsID"><?= @$role ? @$role->role_funcids : "" ?></textarea>
                 <table class="grid" style="width: 500px;">
                     <tr>
                         <th class="center t" style="padding-top:7px;">功能名稱</th>
@@ -54,25 +54,13 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">功能icon：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{@$func->func_img}}" placeholder="请填写应用icon" name="func_img">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">排序：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{{@$func->func_order}}" placeholder="请填写排序" name="func_order">
-            </div>
-        </div>
-        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">状态：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <span class="select-box">
                     <select name="status" class="select">
                         <option value="">请选择状态</option>
-                        <option value="1" @if(@$func->status == 1) selected @endif>显示</option>
-                        <option value="0" @if(@$func->status == 0) selected @endif>隐藏</option>
+                        <option value="1" @if(@$role->status == 1) selected @endif>显示</option>
+                        <option value="0" @if(@$role->status == 0) selected @endif>隐藏</option>
                     </select>
                 </span>
             </div>
@@ -80,13 +68,29 @@
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                 <button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
-                <button  class="btn btn-default radius" type="button">返回</button>
+                <button onclick="window.history.go(-1);" class="btn btn-default radius" type="button">返回</button>
             </div>
         </div>
     </form>
 @stop
 @section('script')
-    <script>
+<script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="/js/jquery.admin.extend.js"></script>
+<script>
+    $(function () {
+        var func_list = $("#txtFuncsID").val().split(';');
+        $(func_list).each(function(i, item) {
+            var list = item.split('-');
+            if (list.length == 5) {
+                var tr = $(".funcitem[value='" + list[4] + "']");
+                tr.find(".chkFunc").attr("checked", true);
+                for(var i=0; i<5; i++) {
+                    tr.find(".chkOp[name='" + list[i] + "']").attr("checked", true);
+                }
+            }
+        });
         function checkValue() {
             var funcitem = $(".funcitem"), check = false, funcnames = '', funcids = '', me = null;
             funcitem.each(function() {
@@ -101,34 +105,27 @@
             $("#txtFuncsName").val(funcnames);
             $("#txtFuncsID").val(funcids);
         }
-
-        $(function () {
-            $(".grid").treeTable(true);
-            $(".chkFunc").click(function() {
-                $(this).parent().parent().next().find("input[type='checkbox']").attr("checked", $(this).attr("checked") || false);
-                checkValue();
-            });
-            $("#chkAll").click(function() {
-                $(".grid input[type='checkbox']").attr("checked", $(this).attr("checked") || false);
-                checkValue();
-            });
-            $(".chkOp").click(function() {
-                var parent = $(this).parent().parent();
-                var len = parent.find("input[type='checkbox']:checked").length;
-                parent.prev().find("input[type='checkbox']:eq(0)").attr("checked", len == 0 ? false : true);
-                checkValue();
-            });
-            $("button[type='submit']").click(function() {
-                if ($("input[name='role_name']").val() == '') { alert("请輸入角色名称！"); $("input[name='role_name']").focus(); return false; };
-                if ($("input[name='role_ename']").val() == '') { alert("请輸入角色代码！"); $("input[name='role_ename']").focus(); return false; };
-                checkValue();
-                return true;
-            });
-        })
-    </script>
-    <script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
-    <script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
-    <script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-    <script type="text/javascript" src="/js/jquery.admin.extend.js"></script>
-
+        $(".grid").treeTable(true);
+        $(".chkFunc").click(function() {
+            $(this).parent().parent().next().find("input[type='checkbox']").attr("checked", $(this).attr("checked") || false);
+            checkValue();
+        });
+        $("#chkAll").click(function() {
+            $(".grid input[type='checkbox']").attr("checked", $(this).attr("checked") || false);
+            checkValue();
+        });
+        $(".chkOp").click(function() {
+            var parent = $(this).parent().parent();
+            var len = parent.find("input[type='checkbox']:checked").length;
+            parent.prev().find("input[type='checkbox']:eq(0)").attr("checked", len == 0 ? false : true);
+            checkValue();
+        });
+        $("button[type='submit']").click(function() {
+            if ($("input[name='role_name']").val() == '') { alert("请輸入角色名称！"); $("input[name='role_name']").focus(); return false; };
+            if ($("input[name='role_ename']").val() == '') { alert("请輸入角色代码！"); $("input[name='role_ename']").focus(); return false; };
+            checkValue();
+            return true;
+        });
+    })
+</script>
 @stop

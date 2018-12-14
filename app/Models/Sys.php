@@ -73,4 +73,32 @@ class Sys extends Model{
 				where app_id=? order by func_order asc";
         return DB::select($sql, [$rid, $app_id]);
     }
+    public function insertRole($data) {
+        return DB::table('sys_role')->insertGetId($data);
+    }
+    public function updateRole($role_id, $data) {
+        $sql = 'update sys_role set '.$this->set($data).' where role_id=:id';
+        $data['id'] = $role_id;
+        return DB::update($sql, $data);
+    }
+    public function deleteRoleFuncs($role_id) {
+        $sql = "delete from sys_role_function where role_id=?";
+        return DB::delete($sql, [$role_id]);
+    }
+    public function insertRoleFuncs($data) {
+        $sql = 'insert into sys_role_function('.$this->fields($data).') values('.$this->values($data).')';
+        return DB::insert($sql, $data);
+    }
+    public function rolesAll() {
+        $sql = "select role_id, role_name, role_ename, status, role_funcnames, role_funcids from sys_role";
+        return DB::select($sql);
+    }
+    public function admin($admin_id) {
+        $sql = "select * from sys_admin_user where admin_id=?";
+        return DB::selectOne($sql, [$admin_id]);
+    }
+    public function roles() {
+        $sql = "select role_id, role_name, role_ename, role_funcnames, role_funcids from sys_role where status=1";
+        return DB::select($sql);
+    }
 }

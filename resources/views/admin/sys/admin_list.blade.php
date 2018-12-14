@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: haili
- * Date: 2018/12/13
- * Time: 12:05
+ * Date: 2018/12/14
+ * Time: 14:48
  */
 ?>
 @extends('admin/master')
@@ -11,71 +11,38 @@
 @stop
 @section('content')
     <div class="cl pd-5 bg-1 bk-gray">
-        <span class="l">
-            <a href="javascript:;" onclick="admin_add('添加应用','{{url("admin/sys/app_op")}}','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加应用</a>
-        </span>
         <span class="r">共有数据：<strong>54</strong> 条</span>
     </div>
     <table class="table table-border table-bordered table-bg">
         <thead>
-            <tr>
-                <th scope="col" colspan="9">功能列表</th>
-            </tr>
+        <tr>
+            <th scope="col" style="width: 77px;">管理 <a href="{{url('admin/sys/admin_op?admin_id'.@$admin_id)}}">新增用户</a></th>
+            <th scope="col">账号信息</th>
+            <th scope="col">权限</th>
+            <th scope="col">真实名称</th>
+            <th scope="col">新增时间</th>
+            <th scope="col">状态</th>
+        </tr>
         </thead>
-        @foreach($funcs as $app)
-            <tr>
-                <th scope="col" colspan="9">
-                    {{$app['app_name']}}(<?=$app['app_ename']?> - <?=$app['app_status'] == 1 ? "可用":"不可用"?>)
-                </th>
-            </tr>
-            <tr style="height:20px">
-                <th class="center">编号</th>
-                <th class="center">功能代码</th>
-                <th class="center">功能名称</th>
-                <th class="center">功能网址</th>
-                <th class="center">图標16x16</th>
-                <th class="center">排序</th>
-                <th class="center">状态</th>
-                <th class="center">操作 <a href="{{url('admin/sys/func_op?app_id='.$app['app_id'])}}"> 添加功能</a></th>
-            </tr>
-            @foreach($app['children'] as $func)
-                <tr class="text-c">
-                    <td>{{$func['func_id']}}</td>
-                    <td>{{$func['func_ename']}}</td>
-                    <td>{{$func['func_name']}}</td>
-                    <td>{{$func['func_url']}}</td>
-                    <td>{{$func['func_img']}}</td>
-                    <td>{{$func['func_order']}}</td>
-                    <td class="td-status">
-                        <span class="label {{$func['func_status'] ? 'label-success': 'label-danger'}} radius">{{$func['func_status'] ? '显示': '隐藏'}}</span>
-                    </td>
-                    <td class="td-manage">
-                        <a style="text-decoration:none" onClick="admin_start(this,'10001')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a>
-                        <a title="编辑" href="{{url('admin/sys/func_op?func_id='.$func['func_id'])}}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+        @if(count(@$roles) > 0)
+            @foreach($roles as $role)
+                <tr>
+                    <td>
+                        <a title="编辑" href="{{url('admin/sys/role_op?role_id='.$role->role_id)}}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                         <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                     </td>
+                    <td>{{$role->role_id}}</td>
+                    <td>{{$role->role_name}}</td>
+                    <td>{{$role->role_ename}}</td>
+                    <td>{{$role->role_funcnames}}</td>
+                    <td>@if($role->status && $role->status == 1)<span class="label label-success radius">启用</span> @else <span class="label label-danger radius">已停用</span> @endif</td>
                 </tr>
             @endforeach
-
-        @endforeach
-        @foreach($napps as $apps)
-        <tr>
-            <th scope="col" colspan="9">
-                {{$apps->app_name}}(<?=$apps->app_ename?> - <?=$apps->status == 1 ? "可用":"不可用"?>)
-            </th>
-        </tr>
-        <tr style="height:20px">
-            <th class="center">编号</th>
-            <th class="center">功能代码</th>
-            <th class="center">功能名称</th>
-            <th class="center">功能网址</th>
-            <th class="center">图標16x16</th>
-            <th class="center">排序</th>
-            <th class="center">状态</th>
-            <th class="center">操作 <a href="{{url('admin/sys/func_op?app_id='.$apps->app_id)}}"> 添加功能</a></th>
-        </tr>
-        <tr><td class="center" colspan="8">暂无功能 </td></tr>
-        @endforeach
+        @else
+            <tr>
+                <td colspan="6">s暂无数据~</td>
+            </tr>
+        @endif
     </table>
 @stop
 @section('script')
@@ -141,3 +108,4 @@
     </script>
     <!--/请在上方写此页面业务相关的脚本-->
 @stop
+

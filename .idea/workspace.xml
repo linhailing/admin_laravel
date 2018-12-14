@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="391ea943-52a1-4158-9d6b-ea43851d9ce0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SysController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SysController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Sys.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sys.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sys/func_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sys/func_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sys/role_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sys/role_list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/sys/role_op.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sys/role_op.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
@@ -32,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+            <state relative-caret-position="504">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -44,8 +50,8 @@
       <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1798">
-              <caret line="180" column="52" selection-start-line="180" selection-start-column="40" selection-end-line="180" selection-end-column="52" />
+            <state relative-caret-position="153">
+              <caret line="156" column="60" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -53,8 +59,8 @@
       <file leaf-file-name="SysController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SysController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="124" column="21" selection-start-line="124" selection-start-column="21" selection-end-line="124" selection-end-column="21" />
+            <state relative-caret-position="468">
+              <caret line="173" column="17" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="17" />
               <folding>
                 <element signature="e#129#150#0#PHP" expanded="true" />
               </folding>
@@ -62,65 +68,50 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="admin_list.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/admin_list.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="18" column="95" selection-start-line="18" selection-start-column="87" selection-end-line="18" selection-end-column="95" />
+              <folding>
+                <element signature="e#388#408#0#HTML" expanded="true" />
+                <element signature="e#907#935#0#HTML" expanded="true" />
+                <element signature="e#1078#1106#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_op.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/admin_op.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="38" column="73" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
+              <folding>
+                <element signature="e#2351#2357#0#HTML" expanded="true" />
+                <element signature="e#2397#2403#0#HTML" expanded="true" />
+                <element signature="e#2403#2409#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_op.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/app_op.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="9" selection-start-line="9" selection-end-line="63" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="role_op.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/role_op.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="12" column="73" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="73" />
-              <folding>
-                <element signature="e#1383#1404#0#HTML" expanded="true" />
-                <element signature="e#1413#1437#0#HTML" expanded="true" />
-                <element signature="e#1476#1500#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classic_add.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/classic/classic_add.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="70" selection-start-line="70" selection-end-line="70" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="role_list.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/role_list.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="func_op.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/func_op.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="81" column="5" selection-start-line="8" selection-end-line="81" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="func_list.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/func_list.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="8" selection-start-line="8" selection-end-line="142" selection-end-column="5" />
-              <folding>
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-                <element signature="e#2160#2188#0#HTML" expanded="true" />
-                <element signature="e#2331#2359#0#HTML" expanded="true" />
-                <element signature="n#style#0;n#tr#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="315">
+              <caret line="62" column="52" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -128,8 +119,8 @@
       <file leaf-file-name="Sys.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Sys.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="72" column="50" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="50" />
+            <state relative-caret-position="399">
+              <caret line="99" column="29" lean-forward="true" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -146,6 +137,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>funcs</find>
+      <find>insertRole</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,16 +172,18 @@
         <option value="$PROJECT_DIR$/resources/views/admin/form.blade.php" />
         <option value="$PROJECT_DIR$/public/client/admin/h-ui.admin/js/H-ui.admin.page.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/sys/app_op.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/sys/func_list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/sys/func_op.blade.php" />
-        <option value="$PROJECT_DIR$/db.sql" />
-        <option value="$PROJECT_DIR$/resources/views/admin/sys/role_list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/Sys.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
         <option value="$PROJECT_DIR$/public/css/custom.css" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/SysController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/sys/func_list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/sys/role_op.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/sys/role_list.blade.php" />
+        <option value="$PROJECT_DIR$/db.sql" />
+        <option value="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
         <option value="$PROJECT_DIR$/routes/admin.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/sys/admin_list.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/Sys.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/SysController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/sys/admin_op.blade.php" />
       </list>
     </option>
   </component>
@@ -351,23 +345,6 @@
             <path>
               <item name="admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -389,7 +366,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="classic" type="462c0819:PsiDirectoryNode" />
+              <item name="sys" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -437,12 +414,13 @@
       <updated>1544084635291</updated>
       <workItem from="1544084637002" duration="2689000" />
       <workItem from="1544591492698" duration="14907000" />
-      <workItem from="1544670208488" duration="18948000" />
+      <workItem from="1544670208488" duration="19232000" />
+      <workItem from="1544764093351" duration="8238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36544000" />
+    <option name="totallyTimeSpent" value="45066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -504,6 +482,20 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/Models/Sys.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1407">
+          <caret line="72" column="50" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/role_op.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="125" column="15" lean-forward="true" selection-start-line="125" selection-start-column="15" selection-end-line="125" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -536,9 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-          <folding>
-            <element signature="e#127#148#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -661,9 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="31" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="e#40#85#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -671,9 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="29" column="27" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="27" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -709,9 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="9" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="9" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -719,9 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding>
-            <element signature="e#127#148#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -767,65 +744,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="79" selection-start-line="4" selection-start-column="79" selection-end-line="4" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/classic/classic_list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="65" column="13" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="65" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/app_op.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="42" selection-start-line="42" selection-end-line="59" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/func_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="8" selection-start-line="8" selection-end-line="142" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="e#2160#2188#0#HTML" expanded="true" />
-            <element signature="e#2331#2359#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="447">
+          <caret line="63" column="70" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/func_op.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="81" column="5" selection-start-line="8" selection-end-line="81" selection-end-column="5" />
+        <state relative-caret-position="265">
+          <caret line="72" column="55" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/role_list.blade.php">
+    <entry file="file://$PROJECT_DIR$/db.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Sys.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="72" column="50" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="50" />
+        <state relative-caret-position="338">
+          <caret line="62" selection-start-line="62" selection-end-line="72" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -836,46 +779,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/custom.css">
+    <entry file="file://$PROJECT_DIR$/routes/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/app_op.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
-          <caret line="4" column="79" selection-start-line="4" selection-start-column="79" selection-end-line="4" selection-end-column="79" />
+          <caret line="9" selection-start-line="9" selection-end-line="63" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/admin_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="95" selection-start-line="18" selection-start-column="87" selection-end-line="18" selection-end-column="95" />
+          <folding>
+            <element signature="e#388#408#0#HTML" expanded="true" />
+            <element signature="e#907#935#0#HTML" expanded="true" />
+            <element signature="e#1078#1106#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1798">
-          <caret line="180" column="52" selection-start-line="180" selection-start-column="40" selection-end-line="180" selection-end-column="52" />
+        <state relative-caret-position="153">
+          <caret line="156" column="60" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SysController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/role_list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="124" column="21" selection-start-line="124" selection-start-column="21" selection-end-line="124" selection-end-column="21" />
+        <state relative-caret-position="63">
+          <caret line="8" selection-start-line="8" selection-end-line="110" />
           <folding>
-            <element signature="e#129#150#0#PHP" expanded="true" />
+            <element signature="e#388#412#0#HTML" expanded="true" />
+            <element signature="e#888#916#0#HTML" expanded="true" />
+            <element signature="e#1059#1087#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/role_op.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="12" column="73" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="73" />
+        <state relative-caret-position="315">
+          <caret line="62" column="52" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/func_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="54" column="170" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="54" selection-end-column="170" />
           <folding>
-            <element signature="e#1383#1404#0#HTML" expanded="true" />
-            <element signature="e#1413#1437#0#HTML" expanded="true" />
-            <element signature="e#1476#1500#0#HTML" expanded="true" />
+            <element signature="e#2090#2118#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Sys.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+        <state relative-caret-position="399">
+          <caret line="99" column="29" lean-forward="true" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SysController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="173" column="17" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="17" />
+          <folding>
+            <element signature="e#129#150#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/sys/admin_op.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="38" column="73" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
+          <folding>
+            <element signature="e#2351#2357#0#HTML" expanded="true" />
+            <element signature="e#2397#2403#0#HTML" expanded="true" />
+            <element signature="e#2403#2409#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

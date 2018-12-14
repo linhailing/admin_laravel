@@ -16,7 +16,7 @@
     <table class="table table-border table-bordered table-bg">
         <thead>
         <tr>
-            <th scope="col">管理 <a href="{{url('admin/sys/role_op')}}">新增角色</a></th>
+            <th scope="col" style="width: 77px;">管理 <a href="{{url('admin/sys/role_op')}}">新增角色</a></th>
             <th scope="col">ID</th>
             <th scope="col">角色名称</th>
             <th scope="col">角色代码</th>
@@ -24,6 +24,25 @@
             <th scope="col">状态</th>
         </tr>
         </thead>
+        @if(count(@$roles) > 0)
+            @foreach($roles as $role)
+                <tr>
+                    <td>
+                        <a title="编辑" href="{{url('admin/sys/role_op?role_id='.$role->role_id)}}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                        <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                    </td>
+                    <td>{{$role->role_id}}</td>
+                    <td>{{$role->role_name}}</td>
+                    <td>{{$role->role_ename}}</td>
+                    <td>{{$role->role_funcnames}}</td>
+                    <td>@if($role->status && $role->status == 1)<span class="label label-success radius">启用</span> @else <span class="label label-danger radius">已停用</span> @endif</td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="6">s暂无数据~</td>
+            </tr>
+        @endif
     </table>
 @stop
 @section('script')

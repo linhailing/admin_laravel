@@ -30,4 +30,6 @@ Route::group(['namespace' => 'Admin','prefix' => '/sys'], function (){
     Route::get('/role_list', 'SysController@roleList');
     Route::get('/role_op', 'SysController@roleOp');
     Route::post('/role_post', 'SysController@rolePost');
+    Route::get('/admin_list', 'SysController@adminList');
+    Route::get('/admin_op', 'SysController@adminOp');
 });
