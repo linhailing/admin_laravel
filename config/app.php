@@ -1,4 +1,20 @@
 <?php
+define('ROOTURL', (@$_SERVER['REQUEST_SCHEME']?:'http')."://".@$_SERVER['HTTP_HOST']);
+define('BASEURI', ROOTURL.'/');
+define('RESOURCE', ROOTURL.'/client/');
+define('ROOTPATH', realpath(public_path('/')));
+define('RESOURCEPATH', ROOTPATH.'/client');
+define('CDNSERVER', env('CDNSERVER'));
+define('CDNRESOURCE', env('CDNRESOURCE', CDNSERVER.'/client/'));
+define('CDNVERSION', env('CDNVERSION'));
+define('SERVICEEMAIL', env('SERVICEEMAIL'));
+define('DEBUGCHECK', env('DEBUGCHECK'));
+define('CSS_VERSION', env('CSS_VERSION', '0.0.1'));
+define('JS_VERSION', env('JS_VERSION', '0.0.1'));
+define('Crypt3DesIV', 'henry');
+define('Crypt3DesKey', 'henry');
+//上传图片类型
+$GLOBALS['upload_mime'] = array('image/jpeg' => 1, 'image/png' => 2, 'image/gif' => 3);
 
 return [
 
