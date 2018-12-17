@@ -10,7 +10,7 @@
 @section('style')
 @stop
 @section('content')
-    <form class="form form-horizontal" id="form-article-add" method="post" action="{{url('admin/sys/app_post')}}">
+    <form class="form form-horizontal" id="form-article-add" method="post" action="{{url('admin/sys/admin_post?admin_id='.@$admin_id)}}">
         @csrf
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>管理员名称：</label>
@@ -33,10 +33,10 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">角色：</label>
             <div class="formControls col-xs-8 col-sm-9"><span class="select-box">
-            <select name="status" class="select">
+            <select name="role_id" class="select">
                 <option value="">请选择角色</option>
                 @foreach(@$roles as $role)
-                    <option value="{{$role->role_id}}">{{$role->role_name}}</option>
+                    <option value="{{$role->role_id}}" @if(@$admin->role_id == $role->role_id) selected @endif>{{$role->role_name}}</option>
                 @endforeach
             </select>
             </span>
@@ -47,8 +47,8 @@
             <div class="formControls col-xs-8 col-sm-9"><span class="select-box">
             <select name="status" class="select">
                 <option value="">请选择状态</option>
-                <option value="1">显示</option>
-                <option value="0">隐藏</option>
+                <option value="1" @if(@$admin->status == 1) selected @endif>显示</option>
+                <option value="0" @if(@$admin->status == 0) selected @endif>隐藏</option>
             </select>
             </span>
             </div>

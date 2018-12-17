@@ -65,9 +65,10 @@ CREATE TABLE `sys_admin_user` (
   `username` varchar(64) NOT NULL DEFAULT '' COMMENT '用户名',
   `password` varchar(64) NOT NULL DEFAULT '' COMMENT '密码',
   `role_id` int(11) NOT NULL COMMENT '角色',
+  `salt`   varchar(10) NOT NULL COMMIT '密码加密字符串',
   `realname` varchar(20) NOT NULL DEFAULT '' COMMENT '姓名',
   `reg_ip` varchar(15) NOT NULL DEFAULT '' COMMENT '注册ip',
   `reg_date` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '注册时间',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
-  PRIMARY KEY (`user_id`,`role_id`)
+  PRIMARY KEY (`admin_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='系统管理员';

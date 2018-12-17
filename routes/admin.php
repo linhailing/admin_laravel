@@ -20,6 +20,9 @@ Route::get('/', 'Admin\WelcomeController@index');
 Route::get('/classic/index', 'Admin\ClassicController@index');
 Route::get('/classic/add', 'Admin\ClassicController@classicAdd');
 Route::any('/classic/upload', 'Admin\ClassicController@classicUpload');
+Route::get('/login', 'Admin\SysController@login');
+Route::any('/loginCheck', 'Admin\SysController@loginCheck');
+Route::get('/logout', 'Admin\SysController@logout');
 //sys
 Route::group(['namespace' => 'Admin','prefix' => '/sys'], function (){
     Route::get('/func_list', 'SysController@funcList');
@@ -32,4 +35,5 @@ Route::group(['namespace' => 'Admin','prefix' => '/sys'], function (){
     Route::post('/role_post', 'SysController@rolePost');
     Route::get('/admin_list', 'SysController@adminList');
     Route::get('/admin_op', 'SysController@adminOp');
+    Route::post('/admin_post', 'SysController@adminPost');
 });

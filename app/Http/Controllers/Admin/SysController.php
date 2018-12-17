@@ -9,9 +9,11 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\IpLocation;
 use App\Models\Model;
+use App\Util;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\AssignOp\Mod;
+use Cookie;
 
 class SysController extends AdminController{
     //功能
@@ -38,7 +40,7 @@ class SysController extends AdminController{
         $napps = Model::Sys()->napps();
         $d['napps'] = $napps;
         $d['funcs'] = $funcs;
-        return view('admin.sys.func_list',$d);
+        return view('admin.sys.func_list',$this->render($d));
     }
     public function funcOp(Request $request){
         $app_id = intval($request->get('app_id'));
@@ -49,7 +51,7 @@ class SysController extends AdminController{
         $d['apps'] = $app;
         $d['app_id'] = $app_id;
         $d['func_id'] = $func_id;
-        return view('admin/sys/func_op',$d);
+        return view('admin/sys/func_op',$this->render($d));
     }
     public function funcPost(Request $request){
         $func_id = intval($request->get('func_id'));
@@ -108,7 +110,7 @@ class SysController extends AdminController{
     public function roleList(Request $request){
         $d = ['title'=>'角色管理'];
         $d['roles'] = Model::Sys()->rolesAll();
-        return view('admin.sys.role_list',$d);
+        return view('admin.sys.role_list',$this->render($d));
     }
     public function roleOp(Request $request){
         $d = ['title'=>'角色管理'];
@@ -120,7 +122,7 @@ class SysController extends AdminController{
         foreach ($apps as $app) $funcs[$app->app_id] = Model::Sys()->funcs($app->app_id, $role_id);
         $d['funcs'] = $funcs;
         $d['apps'] = $apps;
-        return view('admin.sys.role_op',$d);
+        return view('admin.sys.role_op',$this->render($d));
     }
     public function rolePost(Request $request){
         $role_id = intval($request->get('role_id'));
@@ -166,13 +168,77 @@ class SysController extends AdminController{
     //管理员账号
     public function adminList(Request $request){
         $d = ['title'=>'管理员管理'];
-        return view('admin.sys.admin_list', $d);
+        $d['users'] = Model::Sys()->getAdmins();
+        return view('admin.sys.admin_list', $this->render($d));
     }
     public function adminOp(Request $request){
         $admin_id = intval($request->get('admin_id'));
         $d = ['title'=>'管理员管理'];
         $d['admin'] = Model::Sys()->admin($admin_id);
         $d['roles'] = Model::Sys()->roles();
-        return view('admin.sys.admin_op', $d);
+        $d['admin_id'] = $admin_id;
+        return view('admin.sys.admin_op', $this->render($d));
+    }
+    public function adminPost(Request $request){
+        $admin_id = intval($request->get('admin_id'));
+        $username = $request->get('username');
+        $realname = $request->get('realname');
+        $password = $request->get('password');
+        $role_id = $request->get('role_id');
+        $status = $request->get('status');
+        $salt = Util::getSalt();
+        $ip = IpLocation::getIP();
+        if (!empty($password)){
+            $password = Util::password($password, $salt);
+        }
+        $data = [
+            'username' => $username,
+            'realname' => $realname,
+            'password' => $password,
+            'role_id' => $role_id,
+            'status' => $status,
+            'salt' =>$salt,
+            'reg_date' => TIMESTAMP,
+            'reg_ip' => $ip
+        ];
+        if (empty($password)) unset($data['password']);
+        if ($admin_id > 0){
+            unset($data['salt']);
+            unset($data['reg_date']);
+            Model::Sys()->updateAdminUser($admin_id, $data);
+        }
+        else Model::Sys()->insertAdminUser($data);
+        return redirect('admin/sys/admin_list');
+    }
+    public function login(){
+        $d = ['title'=>'用户登录'];
+        return view('admin.login', $d);
+    }
+    public function loginCheck(Request $request){
+        $username = $request->get('username');
+        $password = $request->get('password');
+        if (empty($username) || empty($password)) dd('用户名或密码不能为空');
+        $user = $this->_checkUser($username,$password);
+        if(!$user) dd('用户名或密码不能为空');
+        //Cookie::queue('admin_id', $user->admin_id, 86400*7/60);
+        //return redirect('/admin');
+        $GLOBALS['user_id'] = $user->admin_id;
+        Cookie::queue('user_id', $user->admin_id, 86400*7/60);
+        //$cookie = \Cookie('admin_id', $user->admin_id, 5);
+        return redirect('/admin');
+    }
+    public function logout(){
+        return redirect('/admin/login')->withCookie(Cookie::forget('user_id'));
+    }
+    public function _checkUser($username, $password){
+        $user = Model::Sys()->getAdminUserByUsername($username);
+        if (empty($user)) return false;
+        //验证密码
+        $_password = Util::password($password, $user->salt);
+        if ($user->password === $_password){
+            return $user;
+        }else{
+            return false;
+        }
     }
 }
