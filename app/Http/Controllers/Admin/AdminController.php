@@ -9,10 +9,21 @@
 namespace App\Http\Controllers\Admin;
 
 use \App\Http\Controllers\Controller;
+use Cookie;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller{
-    public function __construct(){
+    public function __construct(Request $request){
         parent::__construct();
+        $GLOBALS['user_id'] = intval(Cookie::get('user_id'));
+        $this->middleware('admin.auth')->except(['login','loginCheck']);
+    }
+    public function render($d=[]){
+        $d['left_menu'] = [];
+        return $d;
+    }
+    public function _ret(){
+        exit(redirect('/admin/login'));
     }
     public function msg($title='错误提示',$msg='参数错误！',$url=''){
         $d = ['title'=>$title];

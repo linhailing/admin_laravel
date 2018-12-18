@@ -97,8 +97,25 @@ class Sys extends Model{
         $sql = "select * from sys_admin_user where admin_id=?";
         return DB::selectOne($sql, [$admin_id]);
     }
+    public function getAdmins() {
+        $sql = "select a.*,b.role_funcnames from sys_admin_user a INNER JOIN sys_role b ON b.role_id = a.role_id  order by a.admin_id desc ";
+        return DB::select($sql);
+    }
     public function roles() {
         $sql = "select role_id, role_name, role_ename, role_funcnames, role_funcids from sys_role where status=1";
         return DB::select($sql);
+    }
+    public function insertAdminUser($data){
+        $sql = 'insert into sys_admin_user('.$this->fields($data).') values('.$this->values($data).')';
+        return DB::insert($sql, $data);
+    }
+    public function getAdminUserByUsername($username) {
+        $sql = "select * from sys_admin_user where username=?";
+        return DB::selectOne($sql, [$username]);
+    }
+    public function updateAdminUser($admin_id, $data){
+        $sql = 'update sys_admin_user set '.$this->set($data).' where admin_id=:id';
+        $data['id'] = $admin_id;
+        return DB::update($sql, $data);
     }
 }

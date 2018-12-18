@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Admin;
 
 class WelcomeController extends AdminController {
     public  function index(){
-        return view('admin/welcome/index');
+        $d = ['title'=>'首页'];
+        return view('admin/welcome/index',$d);
     }
 }

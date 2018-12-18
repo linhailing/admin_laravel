@@ -47,4 +47,11 @@ class Util{
         if (is_array($couldbeA)) return $couldbeA;
         return false;
     }
+    public static function getSalt(){
+        return substr(uniqid(rand()), -6);
+    }
+    //生成密码
+    public static function password($user_password, $user_salt) {
+        return md5(md5($user_password).strval($user_salt));
+    }
 }
