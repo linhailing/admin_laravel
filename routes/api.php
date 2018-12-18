@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function () {
  **/
 
 Route::group(['middleware'=>'api'], function (){
-    Route::get('/classic/latest','Api\ClassicController@classic');
+    Route::group(['namespace'=>'Api','prefix'=>'classic'], function (){
+        Route::get('/latest','ClassicController@getClassicLatest');
+        Route::get('/{index?}/next','ClassicController@getClassicNext');
+        Route::get('/{index?}/previous','ClassicController@getClassicPrevious');
+    });
+
     Route::any('/like','Api\ClassicController@like');
 });

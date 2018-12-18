@@ -15,6 +15,10 @@ class Api extends Model{
         $sql = ' select * from classic LIMIT 1 ';
         return DB::selectOne($sql);
     }
+    public function getClassicLatest(){
+        $sql = 'select * from classic order by `index` desc limit 1';
+        return DB::selectOne($sql);
+    }
     public function getLikeCountByCid($cid){
         $sql = 'select count(uid) count from `like` where cid=?';
         return @DB::selectOne($sql,[$cid])->count ? : 0;
@@ -34,5 +38,9 @@ class Api extends Model{
     public function delLike($uid,$cid){
         $sql = "delete from `like` where uid=? and cid = ? ";
         return DB::delete($sql, [$uid, $cid]);
+    }
+    public  function getClassicByIndex($index){
+        $sql = 'select * from classic where `index` = ?';
+        return DB::selectOne($sql ,[$index]);
     }
 }

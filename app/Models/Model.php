@@ -87,4 +87,9 @@ class Model{
         if (!self::$Sys) self::$Sys = new Sys();
         return self::$Sys;
     }
+    private static $Classic = null;
+    public static function Classic() {
+        if (!self::$Classic) self::$Classic = new Classic();
+        return self::$Classic;
+    }
 }

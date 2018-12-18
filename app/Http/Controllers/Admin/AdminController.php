@@ -14,4 +14,10 @@ class AdminController extends Controller{
     public function __construct(){
         parent::__construct();
     }
+    public function msg($title='错误提示',$msg='参数错误！',$url=''){
+        $d = ['title'=>$title];
+        $d['msg'] = $msg;
+        $d['url'] = $url;
+        return view('admin.show',$d);
+    }
 }

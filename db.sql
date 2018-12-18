@@ -69,5 +69,5 @@ CREATE TABLE `sys_admin_user` (
   `reg_ip` varchar(15) NOT NULL DEFAULT '' COMMENT '注册ip',
   `reg_date` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '注册时间',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
-  PRIMARY KEY (`user_id`,`role_id`)
+  PRIMARY KEY (`admin_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='系统管理员';

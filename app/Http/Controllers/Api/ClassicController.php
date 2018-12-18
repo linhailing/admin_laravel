@@ -38,4 +38,33 @@ class ClassicController extends ApiController{
         else Model::Api()->addLike($uid, $cid);
         return $this->jsonp(['ret'=>0,'msg'=>'ok']);
     }
+    //获取最新期刊
+    public function getClassicLatest(){
+        $info = Model::Api()->getClassicLatest();
+        if (empty($info)) return $this->jsonp(['msg'=>'获取数据失败！','ret'=>400]);
+        if (!empty($info->image)) $info->image = APPURLCDN.$info->image;
+        if (!empty($info->type) && $info->type == 200 && !empty($info->src)) $info->scr = APPURLCDN.$info->src;
+        else unset($info->src);
+        return $this->jsonp(['list'=>$info,'ret'=>0]);
+    }
+    //获取下一期期刊
+    public function getClassicNext($index){
+        if (empty($index)) return $this->jsonp(['msg'=>'参数错误！','ret'=>400]);
+        $info = Model::Api()->getClassicByIndex($index);
+        if (empty($info)) return $this->jsonp(['msg'=>'暂无数据～','ret'=>400]);
+        if (!empty($info->image)) $info->image = APPURLCDN.$info->image;
+        if (!empty($info->type) && $info->type == 200 && !empty($info->src)) $info->scr = APPURLCDN.$info->src;
+        else unset($info->src);
+        return $this->jsonp(['list'=>$info,'ret'=>0]);
+    }
+    //获取下一期期刊
+    public function getClassicPrevious($index){
+        if (empty($index)) return $this->jsonp(['msg'=>'参数错误！','ret'=>400]);
+        $info = Model::Api()->getClassicByIndex($index);
+        if (empty($info)) return $this->jsonp(['msg'=>'暂无数据～','ret'=>400]);
+        if (!empty($info->image)) $info->image = APPURLCDN.$info->image;
+        if (!empty($info->type) && $info->type == 200 && !empty($info->src)) $info->scr = APPURLCDN.$info->src;
+        else unset($info->src);
+        return $this->jsonp(['list'=>$info,'ret'=>0]);
+    }
 }

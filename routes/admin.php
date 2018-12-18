@@ -20,6 +20,7 @@ Route::get('/', 'Admin\WelcomeController@index');
 Route::get('/classic/index', 'Admin\ClassicController@index');
 Route::get('/classic/add', 'Admin\ClassicController@classicAdd');
 Route::any('/classic/upload', 'Admin\ClassicController@classicUpload');
+Route::any('/classic/post', 'Admin\ClassicController@classicPost');
 //sys
 Route::group(['namespace' => 'Admin','prefix' => '/sys'], function (){
     Route::get('/func_list', 'SysController@funcList');

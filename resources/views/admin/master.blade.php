@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/client/admin/h-ui.admin/skin/default/skin.css" id="skin" />
     <link rel="stylesheet" type="text/css" href="/client/admin/h-ui.admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <script>var cdn='{{APPURLCDN}}'</script>
     @yield('style')
     <!--[if IE 6]>
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
@@ -185,6 +186,7 @@
 <script type="text/javascript" src="/client/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript" src="/client/admin/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="/client/admin/h-ui.admin/js/H-ui.admin.page.js"></script>
+<script type="text/javascript" src="/js/jquery.extend.js"></script>
 @yield('script')
 </body>
 </html>

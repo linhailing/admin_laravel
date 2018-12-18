@@ -1,6 +1,8 @@
 <?php
 define('ROOTURL', (@$_SERVER['REQUEST_SCHEME']?:'http')."://".@$_SERVER['HTTP_HOST']);
 define('BASEURI', ROOTURL.'/');
+define('APPURL', env('APP_URL'));
+define('APPURLCDN', APPURL.'/client/');
 define('RESOURCE', ROOTURL.'/client/');
 define('ROOTPATH', realpath(public_path('/')));
 define('RESOURCEPATH', ROOTPATH.'/client');

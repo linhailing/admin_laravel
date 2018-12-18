@@ -24,7 +24,7 @@
             <th scope="col">状态</th>
         </tr>
         </thead>
-        @if(count(@$roles) > 0)
+        @if(@$roles)
             @foreach($roles as $role)
                 <tr>
                     <td>
