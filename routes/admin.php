@@ -38,3 +38,10 @@ Route::group(['namespace' => 'Admin','prefix' => '/sys'], function (){
     Route::get('/admin_op', 'SysController@adminOp');
     Route::post('/admin_post', 'SysController@adminPost');
 });
+//books
+Route::group(['namespace'=>'admin','prefix'=>'/book'], function (){
+    Route::get('/', 'BookController@index');
+    Route::get('/book_add', 'BookController@bookAdd');
+    Route::any('/book_upload', 'BookController@bookUpload');
+    Route::post('post', 'BookController@bookPost');
+});

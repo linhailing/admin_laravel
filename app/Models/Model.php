@@ -92,4 +92,9 @@ class Model{
         if (!self::$Classic) self::$Classic = new Classic();
         return self::$Classic;
     }
+    private static $Book = null;
+    public static function Book() {
+        if (!self::$Book) self::$Book = new Book();
+        return self::$Book;
+    }
 }

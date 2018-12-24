@@ -72,3 +72,26 @@ CREATE TABLE `sys_admin_user` (
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`admin_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='系统管理员';
+
+-- 图书信息
+
+CREATE table `books`(
+  `id` int(11) unsigned  not null auto_increment comment 'id',
+  `author` varchar(200) NOT NULL DEFAULT '' COMMENT '作者',
+  `binding` varchar(50) NOT NULL DEFAULT '' COMMENT '书本封装信息',
+  `category` varchar(64) NOT NULL DEFAULT '' COMMENT '分类',
+  `image` varchar(200) NOT NULL DEFAULT '' COMMENT 'icon',
+  `images` varchar(64) NOT NULL DEFAULT '' COMMENT '多张图片介绍',
+  `isbn` varchar(64) NOT NULL DEFAULT '' COMMENT 'isbn',
+  `pages` varchar(64) NOT NULL DEFAULT '' COMMENT '图书页码',
+  `price` varchar(64) NOT NULL DEFAULT '' COMMENT '价格',
+  `pubdate` varchar(64) NOT NULL DEFAULT '' COMMENT '发版信息',
+  `publisher` varchar(64) NOT NULL DEFAULT '' COMMENT '出版社',
+  `subtitle` varchar(64) NOT NULL DEFAULT '' COMMENT '二级标题',
+  `summary` varchar(2000) NOT NULL DEFAULT '' COMMENT '图书介绍',
+  `title` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
+  `translator` varchar(500) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM dafault charset=utf8 comment='图书信息';
+
+
