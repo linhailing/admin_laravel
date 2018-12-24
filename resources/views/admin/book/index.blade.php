@@ -67,6 +67,19 @@
         @endif
         </tbody>
     </table>
+    <div class="dataTables_paginate pager">
+    </div>
 @stop
 @section('script')
+<script type="text/javascript" src="/js/jquery.admin.extend.js"></script>
+<script>
+    $('.pager').pager({
+        align: 'left',
+        page: {{@$page}},
+        pageSize: {{PAGESIZE}},
+        total: {{@$count}},
+        showGo: true,
+        url: "?page={0}"
+    });
+</script>
 @stop

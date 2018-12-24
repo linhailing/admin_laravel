@@ -20,9 +20,16 @@ class Book extends Model{
         $data['id'] = $id;
         return DB::update($sql, $data);
     }
-    public function getBooks(){
+    public function getBooks($page=1){
+        $start = ($page - 1) * PAGESIZE;
+        $limit = PAGESIZE;
         $sql = "select * from books  order by `id` desc ";
+        $sql .= " limit {$start}, {$limit}";
         return DB::select($sql);
+    }
+    public function getBooksCount(){
+        $sql = "select count(*) as count from books ";
+        return @DB::selectOne($sql)->count;
     }
     public function getBookById($id){
         $sql = "select * from books  where id= ? ";

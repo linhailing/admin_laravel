@@ -16,6 +16,7 @@ define('JS_VERSION', env('JS_VERSION', '0.0.1'));
 define('Crypt3DesIV', 'henry');
 define('Crypt3DesKey', 'henry');
 define('APP_NAME', env('APP_NAME'));
+define('PAGESIZE',env('PAGESIZE'), 10);
 //上传图片类型
 $GLOBALS['upload_mime'] = array('image/jpeg' => 1, 'image/png' => 2, 'image/gif' => 3);
 

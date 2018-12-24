@@ -1327,10 +1327,10 @@
 		///	 &#10;	showGo				   是否顯示輸入頁碼條轉
 		///	 &#10;	showOnePage			  是否顯示只有一頁的頁碼
 		/// </param>
-		var me = this, defaults = { page: 1, pageSize: 10, total: 0, prevText: "上一頁", nextText: "下一頁", linkText: "{0}", totalText: "{0}條記錄", className: "pager", call: null, url: null, align: "right", showGo: false, showOnePage: true };
+		var me = this, defaults = { page: 1, pageSize: 10, total: 0, prevText: "上一頁", nextText: "下一頁", linkText: "{0}", totalText: "{0}条记录", className: "pager", call: null, url: null, align: "right", showGo: false, showOnePage: true };
 		options = $.extend(defaults, options);
-		var a_templates = '<a href="{0}" value="{2}">{1}</a>&nbsp;', span_templates = '<span>{0}</span>&nbsp;', em_templates = '<strong{1}>{0}</strong>&nbsp;',
-			input_templage = '<input type="text" maxlength="9" size="2" value="{0}" onfocus="this.value=this.defaultValue;this.select();" title="可以輸入頁碼按回車鍵自動跳轉" class="txt" name="gopage">',
+		var a_templates = '<a href="{0}" class="paginate_button" value="{2}">{1}</a>&nbsp;', span_templates = '<span class="paginate_button current">{0}</span>&nbsp;', em_templates = '<strong{1}>{0}</strong>&nbsp;',
+			input_templage = '<input type="text" maxlength="9" size="2" value="{0}" onfocus="this.value=this.defaultValue;this.select();" title="可以輸入页码按回车键自动跳转" class="txt" name="gopage">',
 			pages = parseInt(options.total / options.pageSize + (options.total % options.pageSize == 0 ? 0 : 1)),
 			pager = function (page, text) { return a_templates.format(options.url ? options.url.format(page) : "#", text, page); },
 			active = function (page) { return span_templates.format(page); },

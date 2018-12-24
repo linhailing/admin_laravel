@@ -12,9 +12,12 @@ use App\Models\Model;
 use Illuminate\Http\Request;
 
 class BookController extends AdminController{
-    public function index(){
+    public function index(Request $request){
         $d = ['title'=>'图书信息'];
-        $d['list'] = Model::Book()->getBooks();
+        $page = intval($request->get('page',1));
+        $d['list'] = Model::Book()->getBooks($page);
+        $d['count'] = Model::Book()->getBooksCount();
+        $d['page'] = $page;
         return view('admin/book/index', $this->render($d));
     }
     public function bookAdd(Request $request){
